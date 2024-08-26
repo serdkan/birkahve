@@ -1,1 +1,0 @@
-alert("yaşasın kodlama");
