@@ -3,4 +3,4 @@ function topla (sayi1,sayi2){
 }
 let sonuc= topla(5,10);
 
-console.log(sonuc);
+console.log("iki sayının toplamı =" + sonuc);
