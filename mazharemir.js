@@ -1,9 +1,12 @@
-function getStudents(url){
+function getStudents(url) {
     fetch(url)
     .then((response) => {
-        return response .json();
+        return response.json();
     })
-    .then((data) => console.log(data))
-    .catch((err) => console.log(err))
+    .then((data) => {
+        console.log(id[15]); 
+    })
+    .catch((err) => console.log(err));
 }
-getStudents("https://jsonplaceholder.typicode.com/albums")
+
+getStudents("https://jsonplaceholder.typicode.com/albums");
