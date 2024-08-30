@@ -1,0 +1,1 @@
+let kitaplik = {ders1:"türkçe", ders2:"ingilizce",ders3:"almanca"};
