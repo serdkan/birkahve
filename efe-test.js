@@ -1,1 +1,1 @@
-let ogrenci ={adi:"efe"; soyadi:"gül"};
+let ogrenci ={ogrno:"1828",adi:"efe"; soyadi:"gül"};
