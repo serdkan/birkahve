@@ -1,4 +1,5 @@
 let ogrenci = {
     adi:"mazhar emir",
-    soyadi:"kalmazz"
+    soyadi:"kalmaz",
+    ogrencino:355
 }
