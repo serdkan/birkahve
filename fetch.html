@@ -10,8 +10,8 @@
         fetch('https://jsonplaceholder.typicode.com/albums')
             .then(response => response.json()) 
             .then(data => {
-                const onetext = data.filter(item => item.id > 5);
-                console.log(onetext);
+                const filteredTitles = data.filter(item => item.title.length > 25);
+                console.log(filteredTitles);
             })
             .catch(err => console.error('Veri alınırken bir hata oluştu:', err));
     </script>
