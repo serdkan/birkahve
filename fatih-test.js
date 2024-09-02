@@ -3,3 +3,4 @@ let sayi = [
     "iki",
     "üç",
 ];
+export  { sayi };
