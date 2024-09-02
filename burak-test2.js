@@ -7,4 +7,4 @@ let sevdiklerim =
         "TÜRKİYE",
     ];
 
-export{ days }
+export{ sevdiklerim }
