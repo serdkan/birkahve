@@ -1,8 +1,5 @@
-let aylar = [
-    "ocak",
-    "şubat",
-    "mart",
-    "nisan",
-    "mayis",
-]
-export { aylar };
+let sayi = [
+    "bir",
+    "iki",
+    "üç",
+];
