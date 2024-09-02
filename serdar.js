@@ -1,5 +1,3 @@
-let a;
+import { days } from "./serdar-test2.js";
 
-a = "serdar";
-
-console.log(a);
+console.log(days);
