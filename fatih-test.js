@@ -1,1 +1,8 @@
-let mermi = { m4:"233", m7:"233"};
+let aylar = [
+    "ocak",
+    "şubat",
+    "mart",
+    "nisan",
+    "mayis",
+]
+export { aylar };
