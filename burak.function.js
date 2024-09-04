@@ -17,3 +17,5 @@ function takimkurulusu(takimAdi)
 }
 
 takimkurulusu("GÖZTEPE")
+
+export { takimkurulusu }
