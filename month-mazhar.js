@@ -1,4 +1,4 @@
-function month(ttrName) {
+function month(trName) {
 if(trName=="ocak"){
     console.log("January");
 }
@@ -6,7 +6,7 @@ if(trName=="şuba"){
     console.log("February");
 }
 if(trName=="mart"){
-    console.log("march");
+    console.log("March");
 }
 }
 export { mounth };
