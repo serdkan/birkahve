@@ -1,3 +1,3 @@
-import { takimkurulusu } from './burak.function'
+import { takimkurulusu } from './burak.function.js'
 
-console.log(takimkurulusu);
+takimkurulusu("GÖZTEPE")
