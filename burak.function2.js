@@ -1,3 +1,3 @@
-import { takimkurulusu } from './burak.function'
+import { takimkurulusu } from './burak.function.js'
 
 takimkurulusu("GÖZTEPE")
