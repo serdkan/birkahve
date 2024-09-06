@@ -1,8 +1,13 @@
-function eyerse(sayi1,sayi2){
-
-    let sayi = sayi1 + sayi2;
-
-    if(sayi==20){console.log(true)
-    }else{console.log(false)};
-};
-eyerse(11+11);
+function month(trName) {
+    if (trName == "ocak") {
+      console.log("January");
+    }
+    if (trName == "şubat") {
+      console.log("February");
+    }
+    if (trName == "mart") {
+      console.log("march");
+    }
+  }
+  
+  export { month };
