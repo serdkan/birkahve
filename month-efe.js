@@ -1,4 +1,12 @@
-function çarp(s1,s2){
-    return s1*s2;
+function month(trName){
+   if(trName=="ocak"){
+    console.log("January");
+   }
+   if(trName=="şunat"){
+    console.log("February");
+   }
+   if(trName=="mart"){
+    console.log("March");
+   }
 }
-export{çarp}
+export{month}
