@@ -2,7 +2,7 @@ function month(trName){
    if(trName=="ocak"){
     console.log("January");
    }
-   if(trName=="şunat"){
+   if(trName=="şubat"){
     console.log("February");
    }
    if(trName=="mart"){
