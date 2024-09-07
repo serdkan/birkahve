@@ -9,6 +9,10 @@ function month(trName) {
     if (trName == "mart") {
       console.log("march");
     }
+
+    if (trName == "nisan") {
+      console.log("april");
+    }
   }
   
   export { month };
