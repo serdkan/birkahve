@@ -1,3 +1,2 @@
-let students = { name: "serdar", surname: "kandiran" };
-
-console.log(students["name"]);
+import { plates } from "./month-burak.js";
+console.log(plates["İzmir"]);
