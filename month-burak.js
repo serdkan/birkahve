@@ -1,4 +1,4 @@
-const plakalar = {
+const plates = {
   Adana: 1,
   Adıyaman: 2,
   Afyonkarahisar: 3,
@@ -82,4 +82,4 @@ const plakalar = {
   Zonguldak: 67,
 };
 
-export { plakalar };
+export { plates };
