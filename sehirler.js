@@ -1,4 +1,5 @@
-const aylar = {
+// Türkiye illeri ve plaka kodları
+const iller = {
   Adana: 1,
   Adıyaman: 2,
   Afyonkarahisar: 3,
@@ -82,5 +83,15 @@ const aylar = {
   Zonguldak: 67,
 };
 
-export { aylar };
+// İl ismi verildiğinde plaka kodunu döndüren fonksiyon
+function plakaKoduGetir(ilAdi) {
+  const plakaKodu = iller[ilAdi];
 
+  if (plakaKodu) {
+    return plakaKodu;
+  } else {
+    return "Geçersiz il ismi!";
+  }
+}
+
+export { plakaKoduGetir };
