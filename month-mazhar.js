@@ -1,12 +1,5 @@
-function month(trName) {
-if(trName=="ocak"){
-    console.log("January");
-}
-if(trName=="şuba"){
-    console.log("February");
-}
-if(trName=="mart"){
-    console.log("March");
-}
+import { aylar } from "./month-burak.js";
+function mounth(trName) {
+  console.log(aylar[trName]);
 }
 export { mounth };
