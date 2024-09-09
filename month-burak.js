@@ -1,4 +1,4 @@
-const aylar = {
+const plakalar = {
   Adana: 1,
   Adıyaman: 2,
   Afyonkarahisar: 3,
@@ -82,4 +82,4 @@ const aylar = {
   Zonguldak: 67,
 };
 
-export { aylar };
+export { plakalar };
