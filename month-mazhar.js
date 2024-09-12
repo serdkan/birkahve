@@ -9,4 +9,4 @@ if(trName=="mart"){
     console.log("March");
 }
 }
-export { mounth };
+export { month };

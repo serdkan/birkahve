@@ -35,4 +35,4 @@ function month(trName) {
     }
   }
   
-  export { month };
+  month("temmuz")
