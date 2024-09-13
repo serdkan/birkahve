@@ -1,0 +1,1 @@
+let haftalikdersler = ["matematik", "fen"];
