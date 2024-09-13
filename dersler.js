@@ -1,1 +1,1 @@
-let haftalikdersler = ["matematik", "fen"];
+let haftalikdersler = ["matematık", "fen"];
