@@ -1,0 +1,1 @@
+let haftalıkdersler=["Web Programcılığı","Matematik"];
