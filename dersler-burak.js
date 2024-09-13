@@ -1,0 +1,1 @@
+let haftalikdersler = ['beden' , 'boş ders']
