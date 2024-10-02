@@ -24,16 +24,20 @@ CASE WHEN ER.wageTypeId = 2 THEN
 ELSE
 
 						CASE WHEN 
-						(select COUNT(*) from HRM_TimeSheetDetail where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100 and TMD.EmployeeRegistryId=EmployeeRegistryId)<MW.TotalDays
-						THEN
-											CASE WHEN DP.PayrollCalculationMethod=1 THEN 
-											(wage/MW.TotalDays)*(select COUNT(*) from HRM_TimeSheetDetail where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100 and TMD.EmployeeRegistryId=EmployeeRegistryId)
-											ELSE
-											(wage/30)*(select COUNT(*) from HRM_TimeSheetDetail where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100 and TMD.EmployeeRegistryId=EmployeeRegistryId)
-											END
-
-						ELSE
-						0
+									(select COUNT(*) from HRM_TimeSheetDetail where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100 and TMD.EmployeeRegistryId=EmployeeRegistryId)<MW.TotalDays
+									THEN
+														CASE WHEN DP.PayrollCalculationMethod=1 THEN 
+														(wage/MW.TotalDays)*(select COUNT(*) from HRM_TimeSheetDetail where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100 and TMD.EmployeeRegistryId=EmployeeRegistryId)
+														ELSE
+														(wage/30)*(select COUNT(*) from HRM_TimeSheetDetail where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100 and TMD.EmployeeRegistryId=EmployeeRegistryId)
+														END
+						ELSE 
+								CASE WHEN (select COUNT(*) from HRM_TimeSheetDetail where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100 and TMD.EmployeeRegistryId=EmployeeRegistryId)>=MW.TotalDays
+								THEN
+								wage
+								ELSE
+								(wage/MW.TotalDays)*(select COUNT(*) from HRM_TimeSheetDetail where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100 and TMD.EmployeeRegistryId=EmployeeRegistryId)
+								END
 						END
 
 END AS Ucret
@@ -47,31 +51,3 @@ LEFT JOIN HRM_MonthlyWorkingDays MW on ER.departmentId=MW.DepartmentId and MW.Ye
 LEFT JOIN HRM_DepartmentParameter DP ON DP.DepartmentId=ER.departmentId and ER.workPlaceId=DP.WorkPlaceId
 where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100
 
-
-
-
-                --if (workingDaysThisMonth < workingDaysOfDepartment)
-                --{
-                --    if (param.FixEksikGunHesaplamaSekli == 1)
-                --    {             //( 1200/ 29)*20
-                --        // maaş / aylık çalışma günü 
-                --        salary = (wage / workingDaysOfDepartment) * workingDaysThisMonth;
-                --    }
-                --    if (param.FixEksikGunHesaplamaSekli == 2)
-                --    {               //(1200/30)*20
-                --        salary = (wage / 30) * workingDaysThisMonth;
-                --    }
-                --}
-                --else
-                --{
-                --    //if (workingDaysThisMonth >= DateTime.DaysInMonth(_year, _month))
-                --    if (workingDaysThisMonth >= workingDaysOfDepartment)
-                --    {
-                --        salary = wage; //1200
-                --    }
-                --    else
-                --    {
-                --        salary = (wage / workingDaysOfDepartment) * workingDaysThisMonth;
-                --    }
-
-                --}
