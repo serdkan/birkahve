@@ -22,9 +22,23 @@ CASE WHEN ER.wageTypeId = 2 THEN
 ((select SUM(RegularHours) from HRM_TimeSheetDetail where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100 and TMD.EmployeeRegistryId=EmployeeRegistryId) * ER.wage)+
 ((select SUM(OvertimeHours) from HRM_TimeSheetDetail where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100 and TMD.EmployeeRegistryId=EmployeeRegistryId) * ER.wage * DP.OvertimeHoursCoefficient)
 ELSE
-1
-END AS Ucret
 
+						CASE WHEN 
+						(select COUNT(*) from HRM_TimeSheetDetail where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100 and TMD.EmployeeRegistryId=EmployeeRegistryId)<MW.TotalDays
+						THEN
+											CASE WHEN DP.PayrollCalculationMethod=1 THEN 
+											(wage/MW.TotalDays)*(select COUNT(*) from HRM_TimeSheetDetail where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100 and TMD.EmployeeRegistryId=EmployeeRegistryId)
+											ELSE
+											(wage/30)*(select COUNT(*) from HRM_TimeSheetDetail where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100 and TMD.EmployeeRegistryId=EmployeeRegistryId)
+											END
+
+						ELSE
+						0
+						END
+
+END AS Ucret
+,
+(select COUNT(*) from HRM_TimeSheetDetail where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100 and TMD.EmployeeRegistryId=EmployeeRegistryId) AS CalistiginGun
 from HRM_TimeSheet TM
 LEFT JOIN HRM_TimeSheetDetail TMD on TM.Id=TMD.TimeSheetId
 LEFT JOIN HRMV_EmployeeRegistry ER on TMD.EmployeeRegistryId=ER.id
@@ -32,3 +46,32 @@ LEFT JOIN HRMV_Employee E on ER.employeeId=E.Id
 LEFT JOIN HRM_MonthlyWorkingDays MW on ER.departmentId=MW.DepartmentId and MW.Year=2024 and Mw.Month=09
 LEFT JOIN HRM_DepartmentParameter DP ON DP.DepartmentId=ER.departmentId and ER.workPlaceId=DP.WorkPlaceId
 where YEAR(Date)=2024 and MONTH(Date)=09 and TM.WorkPlaceId=100
+
+
+
+
+                --if (workingDaysThisMonth < workingDaysOfDepartment)
+                --{
+                --    if (param.FixEksikGunHesaplamaSekli == 1)
+                --    {             //( 1200/ 29)*20
+                --        // maaş / aylık çalışma günü 
+                --        salary = (wage / workingDaysOfDepartment) * workingDaysThisMonth;
+                --    }
+                --    if (param.FixEksikGunHesaplamaSekli == 2)
+                --    {               //(1200/30)*20
+                --        salary = (wage / 30) * workingDaysThisMonth;
+                --    }
+                --}
+                --else
+                --{
+                --    //if (workingDaysThisMonth >= DateTime.DaysInMonth(_year, _month))
+                --    if (workingDaysThisMonth >= workingDaysOfDepartment)
+                --    {
+                --        salary = wage; //1200
+                --    }
+                --    else
+                --    {
+                --        salary = (wage / workingDaysOfDepartment) * workingDaysThisMonth;
+                --    }
+
+                --}
