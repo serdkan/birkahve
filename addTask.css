@@ -1,0 +1,20 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#container {
+    margin-left: 850px;
+    margin-top: 250px;
+}
+
+button {
+    height: 30px;
+    width: 100px;
+    border: none;
+    background: linear-gradient(red 50%, yellow 50%);
+}
+
+#todoInput {
+    width: 200px;
+    height: 30px;
+}
